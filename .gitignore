@@ -1,0 +1,9 @@
+.dotfiles
+.ssh/
+.gnupg/
+.npmrc
+.env
+*.pem
+*.key
+lazy-lock.json
+config.local.fish
