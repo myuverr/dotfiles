@@ -1,7 +1,11 @@
 # Set path
-fish_add_path -g $HOME/.local/bin
-fish_add_path -g $HOME/.cargo/bin
-fish_add_path -g $HOME/.bun/bin
+fish_add_path -gp /usr/local/bin
+fish_add_path -gp /usr/bin
+fish_add_path -gp /bin
+fish_add_path -gp /usr/local/sbin
+fish_add_path -ga $HOME/.local/bin
+fish_add_path -ga $HOME/.cargo/bin
+fish_add_path -ga $HOME/.bun/bin
 
 # Set environments
 set -l _envd_generator /usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator
