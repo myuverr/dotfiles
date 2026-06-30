@@ -24,6 +24,10 @@
   path = ~/code/github/.gitconfig
 [includeIf "gitdir:~/.dotfiles-private/"]
   path = ~/code/github/.gitconfig
-[filter "strip-settings"]
-	clean = jq 'with_entries(select(.key as $k | [\"colorScheme\", \"enableTelemetry\", \"hooks\"] | index($k)))'
-	smudge = cat
+[filter "antigravity-cli"]
+	clean = jq --sort-keys 'with_entries(select(.key as $k | [\"colorScheme\", \"enableTelemetry\", \"hooks\"] | index($k)))'
+	smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/antigravity-cli/settings.json
+
+[filter "antigravity-global"]
+	clean = jq --sort-keys '{userSettings: {globalPermissionGrants: .userSettings.globalPermissionGrants}}'
+	smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/config/config.json

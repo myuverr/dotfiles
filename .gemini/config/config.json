@@ -1,0 +1,21 @@
+{
+  "userSettings": {
+    "globalPermissionGrants": {
+      "allow": [
+        "mcp(codebase-memory-mcp/*)",
+        "command(git status)",
+        "command(git diff)",
+        "command(git log)",
+        "command(git show)",
+        "command(git branch)",
+        "command(git rev-parse)",
+        "command(git add)",
+        "command(git commit)",
+        "command(git switch)",
+        "command(git restore --staged)",
+        "command(git checkout)",
+        "command(git stash)"
+      ]
+    }
+  }
+}
