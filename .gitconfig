@@ -16,18 +16,18 @@
 [commit]
 	gpgsign = true
 
-[includeIf "gitdir:~/aur/"]
-	path = ~/aur/.gitconfig
-[includeIf "gitdir:~/code/github/"]
-  path = ~/code/github/.gitconfig
+[includeIf "gitdir:~/Code/aur/"]
+	path = ~/Code/aur/.gitconfig
+[includeIf "gitdir:~/Code/github/"]
+  path = ~/Code/github/.gitconfig
 [includeIf "gitdir:~/.dotfiles/"]
-  path = ~/code/github/.gitconfig
+  path = ~/Code/github/.gitconfig
 [includeIf "gitdir:~/.dotfiles-private/"]
-  path = ~/code/github/.gitconfig
-[filter "antigravity-cli"]
-	clean = jq --sort-keys 'with_entries(select(.key as $k | [\"colorScheme\", \"enableTelemetry\", \"hooks\"] | index($k)))'
-	smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/antigravity-cli/settings.json
+  path = ~/Code/github/.gitconfig
 
+[filter "antigravity-cli"]
+  clean = jq --sort-keys 'with_entries(select(.key as $k | [\"colorScheme\", \"enableTelemetry\", \"hooks\"] | index($k)))'
+  smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/antigravity-cli/settings.json
 [filter "antigravity-global"]
-	clean = jq --sort-keys '{userSettings: {globalPermissionGrants: .userSettings.globalPermissionGrants}}'
-	smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/config/config.json
+  clean = jq --sort-keys '{userSettings: {globalPermissionGrants: .userSettings.globalPermissionGrants}}'
+  smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/config/config.json
