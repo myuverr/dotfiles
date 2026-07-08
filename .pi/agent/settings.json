@@ -1,4 +1,11 @@
 {
   "enableInstallTelemetry": false,
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-subagents",
+    "npm:pi-mcp-adapter",
+    "npm:@gotgenes/pi-permission-system"
+  ],
+  "showCacheMissNotices": true,
   "theme": "Tokyo Night Day/Tokyo Night"
 }

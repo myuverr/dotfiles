@@ -32,5 +32,6 @@
   clean = jq --sort-keys '{userSettings: {globalPermissionGrants: .userSettings.globalPermissionGrants}}'
   smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/config/config.json
 [filter "pi"]
-  clean = jq --sort-keys 'with_entries(select(.key as $k | [\"theme\", \"enableInstallTelemetry\"] | index($k)))'
+  clean = jq --sort-keys 'with_entries(select(.key as $k | [\"theme\", \"packages\", \"enableInstallTelemetry\", \"showCacheMissNotices\"] | index($k)))'
   smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.pi/agent/settings.json
+

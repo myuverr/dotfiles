@@ -14,8 +14,8 @@
 
 # Codebase Knowledge Graph (codebase-memory-mcp)
 
-**ALWAYS prefer graph tools** over grep/glob/file-search for code discovery.
-See `/skill:codebase-memory-mcp` for the full workflow, CLI syntax, and common pitfalls.
+**ALWAYS prefer** search_graph → trace_path → get_code_snippet over grep/glob for code discovery.
+Use `mcp({ server: "codebase-memory", tool: "..." })` — see `/skill:codebase-memory-mcp` for full workflow.
 
 Fall back to grep/glob only when:
 - Searching for string literals, error messages, or config values

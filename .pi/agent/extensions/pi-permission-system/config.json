@@ -1,0 +1,381 @@
+{
+  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
+  "debugLog": false,
+  "permissionReviewLog": true,
+  "yoloMode": false,
+  "doublePressToConfirm": true,
+  "toolInputPreviewMaxLength": 2000,
+  "toolTextSummaryMaxLength": 200,
+  "piInfrastructureReadPaths": [],
+  "permission": {
+    "*": "ask",
+
+    "read": "allow",
+    "grep": "allow",
+    "find": "allow",
+    "ls": "allow",
+    "write": "allow",
+    "edit": "allow",
+
+    "external_directory": {
+      "*": "ask",
+      "~/.cargo/registry/*": "allow",
+      "~/.npm/*": "allow",
+      "~/.cache/*": "ask"
+    },
+
+    "mcp": {
+      "*": "ask",
+      "codebase-memory-mcp/*": "allow"
+    },
+
+    "path": {
+      "*": "allow",
+
+      "*.env": {
+        "action": "deny",
+        "reason": "Access to environment variable files (.env) is blocked to prevent credential leakage."
+      },
+      "*.env.*": {
+        "action": "deny",
+        "reason": "Access to environment variable backups/configurations is blocked to prevent credential leakage."
+      },
+      "*.env.example": "allow",
+      "~/.ssh/*": {
+        "action": "deny",
+        "reason": "Access to SSH directories containing private keys is blocked for agent safety."
+      },
+      "~/.aws/*": {
+        "action": "deny",
+        "reason": "Access to AWS credential files is blocked to prevent unauthorized cloud operations."
+      },
+      "~/.kube/*": {
+        "action": "deny",
+        "reason": "Access to Kubernetes kubeconfig files is blocked to prevent unauthorized cluster operations."
+      },
+      "~/.gnupg/*": {
+        "action": "deny",
+        "reason": "Access to GnuPG keyrings is blocked to prevent key leakage."
+      },
+      "~/.docker/*": {
+        "action": "deny",
+        "reason": "Access to Docker config files containing registry credentials is blocked."
+      },
+      "~/.config/gh/*": {
+        "action": "deny",
+        "reason": "Access to GitHub CLI tokens is blocked to prevent unauthorized repository access."
+      },
+      "**/secrets.*": {
+        "action": "deny",
+        "reason": "Access to secret files is blocked."
+      },
+      "**/credentials*": {
+        "action": "deny",
+        "reason": "Access to credential stores is blocked."
+      },
+      "**/*.pem": {
+        "action": "deny",
+        "reason": "Access to PEM certificates and private keys is blocked."
+      },
+      "**/*.key": {
+        "action": "deny",
+        "reason": "Access to private keys is blocked."
+      },
+      "**/id_rsa*": {
+        "action": "deny",
+        "reason": "Access to SSH private keys is blocked."
+      },
+      "**/id_ed25519*": {
+        "action": "deny",
+        "reason": "Access to modern SSH private keys is blocked."
+      },
+
+      "~/.config/*": "ask",
+      "~/.gitconfig": "ask",
+      "~/.cache/*": "ask"
+    },
+
+    "bash": {
+      "*": "ask",
+
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "git branch": "allow",
+      "git branch -a*": "allow",
+      "git branch -r*": "allow",
+      "git branch -v*": "allow",
+      "git tag*": "allow",
+      "git remote -v*": "allow",
+      "git stash list": "allow",
+      "git stash show*": "allow",
+      "git stash push*": "allow",
+      "git stash pop*": "allow",
+      "git stash apply*": "allow",
+      "git blame*": "allow",
+      "git shortlog*": "allow",
+      "git rev-parse*": "allow",
+      "git config --list*": "allow",
+      "git config --get*": "allow",
+      "git add*": "allow",
+      "git commit*": "allow",
+      "git switch*": "allow",
+      "git restore*": "allow",
+      "git checkout*": "allow",
+
+      "npm test*": "allow",
+      "pnpm test*": "allow",
+      "yarn test*": "allow",
+      "bun test*": "allow",
+      "deno test*": "allow",
+      "pytest*": "allow",
+      "cargo test*": "allow",
+      "go test*": "allow",
+      "mvn test*": "allow",
+      "gradle test*": "allow",
+      "gradlew test*": "allow",
+
+      "eslint*": "allow",
+      "prettier*": "allow",
+      "black*": "allow",
+      "flake8*": "allow",
+      "mypy*": "allow",
+      "ruff*": "allow",
+      "go vet*": "allow",
+      "go fmt*": "allow",
+      "golangci-lint*": "allow",
+      "tsc --noEmit*": "allow",
+      "npx eslint*": "allow",
+      "poetry run pytest*": "allow",
+      "poetry run ruff*": "allow",
+      "poetry run black*": "allow",
+      "poetry run mypy*": "allow",
+      "poetry run pylint*": "allow",
+      "poetry run flake8*": "allow",
+      "poetry check*": "allow",
+      "conda run*": "allow",
+      "ruff check*": "allow",
+      "ruff format*": "allow",
+      "black --check*": "allow",
+      "prettier --check*": "allow",
+      "prettier -c*": "allow",
+      "npm run format*": "allow",
+      "pnpm format*": "allow",
+      "yarn format*": "allow",
+      "make -n*": "allow",
+
+      "grep*": "allow",
+      "rg*": "allow",
+      "ripgrep*": "allow",
+      "find*": "allow",
+      "fd*": "allow",
+      "cat*": "allow",
+      "head*": "allow",
+      "tail*": "allow",
+      "less*": "allow",
+      "more*": "allow",
+      "jq*": "allow",
+      "yq*": "allow",
+      "tree*": "allow",
+      "du*": "allow",
+      "df*": "allow",
+      "wc*": "allow",
+      "file*": "allow",
+      "stat*": "allow",
+      "echo*": "allow",
+      "printf*": "allow",
+      "ag*": "allow",
+      "sed -n*": "allow",
+      "awk*": "allow",
+      "xargs echo*": "allow",
+      "diff*": "allow",
+      "md5sum*": "allow",
+      "sha256sum*": "allow",
+      "basename*": "allow",
+      "dirname*": "allow",
+      "realpath*": "allow",
+      "sort*": "allow",
+      "uniq*": "allow",
+      "cut*": "allow",
+      "tr*": "allow",
+      "tee*": "allow",
+
+      "* --version": "allow",
+      "* -v": "allow",
+      "go version": "allow",
+      "which*": "allow",
+      "type*": "allow",
+      "command -v*": "allow",
+      "env": "allow",
+      "printenv*": "allow",
+      "date": "allow",
+      "whoami": "allow",
+      "hostname": "allow",
+      "uname*": "allow",
+      "pwd": "allow",
+      "id": "allow",
+
+      "npm list*": "allow",
+      "npm info*": "allow",
+      "npm view*": "allow",
+      "npm outdated*": "allow",
+      "cargo metadata*": "allow",
+
+      "make*": "allow",
+      "cmake*": "allow",
+      "ninja*": "allow",
+      "gcc*": "allow",
+      "g++*": "allow",
+      "clang*": "allow",
+      "clang++*": "allow",
+      "go build*": "allow",
+      "cargo build*": "allow",
+      "mvn compile*": "allow",
+      "mvn package*": "allow",
+      "gradle build*": "allow",
+      "gradle compileJava*": "allow",
+      "gradlew build*": "allow",
+      "gradlew compileJava*": "allow",
+      "javac*": "allow",
+      "npm run build*": "allow",
+      "pnpm build*": "allow",
+      "pnpm run build*": "allow",
+      "yarn build*": "allow",
+      "yarn run build*": "allow",
+      "webpack*": "allow",
+      "vite build*": "allow",
+      "next build*": "allow",
+
+      "npm install*": "allow",
+      "npm ci*": "allow",
+      "npm link*": "allow",
+      "pnpm install*": "allow",
+      "pnpm add*": "allow",
+      "yarn install*": "allow",
+      "yarn add*": "allow",
+      "bun install*": "allow",
+      "bun add*": "allow",
+      "deno install*": "allow",
+      "go get*": "allow",
+      "cargo add*": "allow",
+      "poetry install*": "allow",
+      "poetry add*": "allow",
+      "poetry remove*": "allow",
+      "poetry update*": "allow",
+      "conda install*": "allow",
+      "conda update*": "allow",
+      "conda remove*": "allow",
+      "pipenv install*": "allow",
+      "pipenv sync*": "allow",
+
+      "uv pip install*": "allow",
+      "uv add*": "allow",
+      "uv remove*": "allow",
+      "uv sync*": "allow",
+      "uv lock*": "allow",
+
+      "pip*": {
+        "action": "deny",
+        "reason": "Please use 'uv' to manage packages."
+      },
+      "pip3*": {
+        "action": "deny",
+        "reason": "Please use 'uv' to manage packages."
+      },
+      "python -m pip*": {
+        "action": "deny",
+        "reason": "Please use 'uv' to manage packages."
+      },
+      "python3 -m pip*": {
+        "action": "deny",
+        "reason": "Please use 'uv' to manage packages."
+      },
+
+      "rm -rf *": {
+        "action": "deny",
+        "reason": "Destructive deletion with rm -rf * is blocked to prevent accidental data loss."
+      },
+      "sudo *": {
+        "action": "deny",
+        "reason": "Running commands as superuser (sudo) is not permitted."
+      },
+      "su *": {
+        "action": "deny",
+        "reason": "Switching users (su) is forbidden for agent security."
+      },
+      "chmod 777*": {
+        "action": "deny",
+        "reason": "Setting broad insecure permissions (chmod 777) is blocked."
+      },
+      "chown *": {
+        "action": "deny",
+        "reason": "Changing file ownership (chown) is blocked."
+      },
+      "systemctl *": {
+        "action": "deny",
+        "reason": "Modifying system services via systemctl is prohibited."
+      },
+      "poweroff*": {
+        "action": "deny",
+        "reason": "System poweroff commands are blocked."
+      },
+      "reboot*": {
+        "action": "deny",
+        "reason": "System reboot commands are blocked."
+      },
+      "shutdown*": {
+        "action": "deny",
+        "reason": "System shutdown commands are blocked."
+      },
+      "dd *": {
+        "action": "deny",
+        "reason": "Direct block-level disk writing (dd) is blocked."
+      },
+      "mkfs*": {
+        "action": "deny",
+        "reason": "Formatting filesystems (mkfs) is blocked."
+      },
+      "git push *--force*": {
+        "action": "deny",
+        "reason": "Force pushing is forbidden to protect repository history integrity."
+      },
+      "git push -f *": {
+        "action": "deny",
+        "reason": "Force pushing is forbidden to protect repository history integrity."
+      },
+      "git reset --hard*": {
+        "action": "deny",
+        "reason": "Hard resetting git commits is blocked to prevent accidental code loss."
+      },
+      "eval *": {
+        "action": "deny",
+        "reason": "The use of eval is forbidden due to shell injection vulnerabilities."
+      },
+      "curl *|*": {
+        "action": "deny",
+        "reason": "Piping external network content directly into shell interpreters is prohibited."
+      },
+      "wget *|*": {
+        "action": "deny",
+        "reason": "Piping external network content directly into shell interpreters is prohibited."
+      },
+      "source /dev/*": {
+        "action": "deny",
+        "reason": "Sourcing raw device streams is prohibited."
+      }
+    },
+
+    "web_search": "allow",
+    "fetch_content": "allow",
+    "get_search_content": "allow",
+    "subagent": "allow",
+    "subagent_wait": "allow",
+    "intercom": "allow",
+    "subagent_supervisor": "allow",
+
+    "skill": {
+      "*": "allow"
+    }
+  }
+}
