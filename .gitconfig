@@ -27,11 +27,13 @@
 
 [filter "antigravity-cli"]
   clean = jq --sort-keys 'with_entries(select(.key as $k | [\"colorScheme\", \"enableTelemetry\", \"hooks\"] | index($k)))'
-  smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/antigravity-cli/settings.json
+  smudge = $HOME/.config/git/filters/json-deep-merge.sh $HOME/.gemini/antigravity-cli/settings.json
 [filter "antigravity-global"]
   clean = jq --sort-keys '{userSettings: {globalPermissionGrants: .userSettings.globalPermissionGrants}}'
-  smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.gemini/config/config.json
+  smudge = $HOME/.config/git/filters/json-deep-merge.sh $HOME/.gemini/config/config.json
 [filter "pi"]
   clean = jq --sort-keys 'with_entries(select(.key as $k | [\"theme\", \"packages\", \"enableInstallTelemetry\", \"showCacheMissNotices\"] | index($k)))'
-  smudge = $HOME/.config/git/filters/smudge-merge.sh $HOME/.pi/agent/settings.json
-
+  smudge = $HOME/.config/git/filters/json-deep-merge.sh $HOME/.pi/agent/settings.json
+[filter "makepkg"]
+  clean = $HOME/.config/git/filters/makepkg-goamd64.sh clean
+  smudge = $HOME/.config/git/filters/makepkg-goamd64.sh smudge

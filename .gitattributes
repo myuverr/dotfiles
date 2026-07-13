@@ -1,3 +1,4 @@
 .gemini/antigravity-cli/settings.json filter=antigravity-cli
 .gemini/config/config.json filter=antigravity-global
 .pi/agent/settings.json filter=pi
+.config/pacman/makepkg.conf filter=makepkg
