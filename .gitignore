@@ -8,3 +8,4 @@
 *.key
 lazy-lock.json
 config.local.fish
+kitty.local.conf
