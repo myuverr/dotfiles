@@ -1,7 +1,5 @@
 format = """
-${custom.zsh}\
-${custom.bash}\
-${custom.fish}\
+$shell\
 $username\
 $hostname\
 $localip\
@@ -14,28 +12,30 @@ $fossil_branch\
 $fossil_metrics\
 ${custom.git_host}\
 $all\
-"""
+$fill\
+$cmd_duration\
+$time
+$character"""
 
 [directory]
-truncation_length=0
+truncation_length = 0
+truncation_symbol = "…/"
+repo_root_style = "bold cyan"
+repo_root_format = "[📦 $repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
-[custom.zsh]
-command = "echo 🚀"
-when = """ test "$STARSHIP_SHELL" "==" "zsh" """
-format = "$output "
-ignore_timeout = true
+[line_break]
+disabled = true
 
-[custom.bash]
-command = "echo 🐚" 
-when = """ test "$STARSHIP_SHELL" "==" "bash" """
-format = "$output "
-ignore_timeout = true
+[time]
+disabled = false
+style = "grey"
 
-[custom.fish]
-command = "echo 🐟"
-when = """ test "$STARSHIP_SHELL" = "fish" """
-format = "$output "
-ignore_timeout = true
+[shell]
+disabled = false
+fish_indicator = "🐟"
+bash_indicator = "🐚"
+zsh_indicator = "🚀"
+format = "$indicator "
 
 [custom.git_host]
 command = """
@@ -44,15 +44,19 @@ if [[ "$URL" =~ "github" ]]; then
     ICON=""
 elif [[ "$URL" =~ "gitlab" ]]; then
     ICON=""
-elif [[ "$URL" =~ "bitbucket" ]];then
+elif [[ "$URL" =~ "azure" || "$URL" =~ "visualstudio" ]]; then
+    ICON="󰠅"
+elif [[ "$URL" =~ "aws" || "$URL" =~ "codecommit" ]]; then
+    ICON="󰸏"
+elif [[ "$URL" =~ "bitbucket" ]]; then
     ICON=""
-elif [[ "$URL" =~ "kernel" ]];then
+elif [[ "$URL" =~ "kernel" ]]; then
     ICON=""
-elif [[ "$URL" =~ "archlinux" ]];then
+elif [[ "$URL" =~ "archlinux" ]]; then
     ICON=""
-elif [[ "$URL" =~ "gnu" ]];then
+elif [[ "$URL" =~ "gnu" ]]; then
     ICON=""
-elif [[ "$URL" =~ "git" ]];then
+elif [[ "$URL" =~ "git" ]]; then
     ICON=""
 else
     ICON=""
