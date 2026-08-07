@@ -2,6 +2,13 @@
 
 Personal dotfiles managed with a [bare git repository](https://www.atlassian.com/git/tutorials/dotfiles).
 
+## Prerequisites
+
+Make sure these are installed before cloning:
+
+- jq
+- nix
+
 ## Setup
 
 ```bash
@@ -12,6 +19,8 @@ git clone --bare <repo-url> $HOME/.dotfiles
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Checkout (backup conflicting files first if needed)
+# Stage the filter config first so smudge filters are active for the full checkout
+dot checkout .gitconfig .config/git/filters/
 dot checkout
 
 # Hide untracked files

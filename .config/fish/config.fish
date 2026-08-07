@@ -5,9 +5,11 @@ fish_add_path -gp /bin
 fish_add_path -gp /usr/local/sbin
 fish_add_path -ga $HOME/.local/bin
 fish_add_path -ga $HOME/.cargo/bin
-fish_add_path -ga $HOME/.bun/bin
+fish_add_path -ga $HOME/.local/share/pnpm/bin
+fish_add_path -ga $HOME/.nix-profile/bin
 
 # Set environments
+set -gx NH_FLAKE $HOME/.config/home-manager
 set -l _envd_generator /usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator
 set -l _envd_target $HOME/.config/environment.d/headless-compat.conf
 
@@ -137,7 +139,7 @@ if status is-interactive
 
     # Activations
     starship init fish | source
-    enable_transience
+    set -gx fish_transient_prompt 1
     function starship_transient_prompt_func
         starship module character
     end

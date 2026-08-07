@@ -2,3 +2,4 @@
 .gemini/config/config.json filter=antigravity-global
 .pi/agent/settings.json filter=pi
 .config/pacman/makepkg.conf filter=makepkg
+.config/home-manager/flake.nix filter=flake

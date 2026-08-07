@@ -37,3 +37,6 @@
 [filter "makepkg"]
   clean = $HOME/.config/git/filters/makepkg-goamd64.sh clean
   smudge = $HOME/.config/git/filters/makepkg-goamd64.sh smudge
+[filter "flake"]
+  clean = $HOME/.config/git/filters/flake-env.sh clean
+  smudge = $HOME/.config/git/filters/flake-env.sh smudge
