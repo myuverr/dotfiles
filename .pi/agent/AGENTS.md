@@ -1,4 +1,4 @@
-# 认知纪律 (全项目通用)
+# 认知纪律
 
 ## AI 编程助手“八荣八耻”：
 *   以瞎猜接口为耻，以认真查询为荣
@@ -14,10 +14,27 @@
 
 # Codebase Knowledge Graph (codebase-memory-mcp)
 
-**ALWAYS prefer** search_graph → trace_path → get_code_snippet over grep/glob for code discovery.
-Use `mcp({ server: "codebase-memory", tool: "..." })` — see `/skill:codebase-memory-mcp` for full workflow.
+ALWAYS prefer search_graph → trace_path → get_code_snippet over grep/glob for code discovery.
 
 Fall back to grep/glob only when:
 - Searching for string literals, error messages, or config values
 - Searching non-code files (Dockerfiles, shell scripts, configs)
 - Graph tools return insufficient or empty results despite the project being indexed
+
+---
+
+# GitHub Access
+
+Always use the authenticated `gh` CLI for GitHub data.
+
+## Commands
+- View repo / PR / issue: `gh repo view owner/repo`, `gh pr view 123 -R owner/repo`, `gh issue view`
+- API access: `gh api <endpoint>`
+- Read a single file / dir: `gh repo read-file <path> -R owner/repo`, `gh repo read-dir <path>`
+- Whole-repo analysis: `gh repo clone owner/repo <tmpdir>` then Read/Grep locally
+- Release assets: `gh release download -R owner/repo`
+
+## Boundaries
+- ✅ Cap list commands with `-L`; run `gh auth status` first if auth is uncertain
+- 🚫 Never `curl`/`wget`/WebFetch `github.com` / `api.github.com` / `raw.githubusercontent.com` / `gist.github.com`
+- 🚫 Never use `gh api repos/<owner>/<repo>/contents/...` + base64 decoding to read files (use `gh repo read-file` or clone)

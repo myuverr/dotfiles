@@ -2,8 +2,13 @@
   "enableInstallTelemetry": false,
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-subagents",
-    "npm:pi-mcp-adapter",
+    "npm:@tintinweb/pi-subagents",
+    "git:github.com/obra/superpowers",
+    "npm:@narumitw/pi-statusline",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-simplify",
     "npm:@gotgenes/pi-permission-system"
   ],
   "showCacheMissNotices": true,

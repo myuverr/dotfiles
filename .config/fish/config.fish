@@ -7,6 +7,7 @@ fish_add_path -ga $HOME/.local/bin
 fish_add_path -ga $HOME/.cargo/bin
 fish_add_path -ga $HOME/.local/share/pnpm/bin
 fish_add_path -ga $HOME/.nix-profile/bin
+mise activate fish --shims | source
 
 # Set environments
 set -gx NH_FLAKE $HOME/.config/home-manager
@@ -147,6 +148,10 @@ if status is-interactive
     end
     zoxide init fish | source
     fzf --fish | source
+
+    # Set environments
+    set -gx PI_FFF_MODE override
+    set -gx PI_FFF_MULTIGREP 1
 
     # Set theme
     fish_config theme choose tokyonight_night
