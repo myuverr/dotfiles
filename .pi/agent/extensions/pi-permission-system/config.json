@@ -315,23 +315,23 @@
       "podman create *--device*": "ask",
       "rm *": {
         "action": "deny",
-        "reason": "permanent deletion. Use trash-put instead; run trash-list to verify the intended files, then use trash-rm only on those confirmed items."
+        "reason": "permanent deletion. Use trash-put -- <path> instead; run trash-list to verify the intended files, then use trash-rm <absolute-path-from-trash-list> only on those confirmed items."
       },
       "unlink *": {
         "action": "deny",
-        "reason": "permanent deletion. Use trash-put instead; run trash-list to verify the intended files, then use trash-rm only on those confirmed items."
+        "reason": "permanent deletion. Use trash-put -- <path> instead; run trash-list to verify the intended files, then use trash-rm <absolute-path-from-trash-list> only on those confirmed items."
       },
       "shred *": {
         "action": "deny",
-        "reason": "permanent deletion. Use trash-put instead; run trash-list to verify the intended files, then use trash-rm only on those confirmed items."
+        "reason": "permanent deletion. Use trash-put -- <path> instead; run trash-list to verify the intended files, then use trash-rm <absolute-path-from-trash-list> only on those confirmed items."
       },
       "find *-delete*": {
         "action": "deny",
-        "reason": "permanent deletion. Use trash-put instead; run trash-list to verify the intended files, then use trash-rm only on those confirmed items."
+        "reason": "permanent deletion. Use trash-put -- <path> instead; run trash-list to verify the intended files, then use trash-rm <absolute-path-from-trash-list> only on those confirmed items."
       },
       "trash-empty*": {
         "action": "deny",
-        "reason": "permanent deletion. Use trash-put instead; run trash-list to verify the intended files, then use trash-rm only on those confirmed items."
+        "reason": "permanent deletion. Use trash-put -- <path> instead; run trash-list to verify the intended files, then use trash-rm <absolute-path-from-trash-list> only on those confirmed items."
       },
       "sudo *": {
         "action": "deny",

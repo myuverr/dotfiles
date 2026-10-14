@@ -1,16 +1,155 @@
 {
+  "codemode": {
+    "mode": "only"
+  },
+  "defaultTools": [
+    "+codemode"
+  ],
   "enableInstallTelemetry": false,
   "packages": [
     "npm:pi-web-access",
-    "npm:@tintinweb/pi-subagents",
-    "git:github.com/obra/superpowers",
+    {
+      "extensions": [],
+      "skills": [
+        "-skills/using-superpowers/SKILL.md"
+      ],
+      "source": "git:github.com/obra/superpowers"
+    },
     "npm:@narumitw/pi-statusline",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@juicesharp/rpiv-todo",
     "npm:@ff-labs/pi-fff",
     "npm:pi-simplify",
-    "npm:@gotgenes/pi-permission-system"
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-subagents"
   ],
   "showCacheMissNotices": true,
+  "subagents": {
+    "agentOverrides": {
+      "delegate": {
+        "disabled": true
+      },
+      "evidence-auditor": {
+        "advertise": true,
+        "extensions": [
+          "~/.pi/agent/npm/node_modules/@gotgenes/pi-permission-system",
+          "~/.pi/agent/npm/node_modules/@ff-labs/pi-fff",
+          "~/.pi/agent/npm/node_modules/pi-web-access"
+        ],
+        "inheritGlobalContext": true,
+        "tools": [
+          "read",
+          "grep",
+          "multi_grep",
+          "find",
+          "ls",
+          "codemode",
+          "web_enable",
+          "web_search",
+          "fetch_content",
+          "get_search_content",
+          "source_check",
+          "contact_supervisor"
+        ]
+      },
+      "oracle": {
+        "advertise": true,
+        "extensions": [
+          "~/.pi/agent/npm/node_modules/@gotgenes/pi-permission-system",
+          "~/.pi/agent/npm/node_modules/@ff-labs/pi-fff"
+        ],
+        "inheritGlobalContext": true,
+        "tools": [
+          "read",
+          "grep",
+          "multi_grep",
+          "find",
+          "ls",
+          "codemode",
+          "watchdog_diff",
+          "contact_supervisor"
+        ]
+      },
+      "researcher": {
+        "advertise": true,
+        "extensions": [
+          "~/.pi/agent/npm/node_modules/@gotgenes/pi-permission-system",
+          "~/.pi/agent/npm/node_modules/@ff-labs/pi-fff",
+          "~/.pi/agent/npm/node_modules/pi-web-access"
+        ],
+        "inheritGlobalContext": true,
+        "tools": [
+          "read",
+          "grep",
+          "multi_grep",
+          "find",
+          "ls",
+          "codemode",
+          "web_enable",
+          "web_search",
+          "fetch_content",
+          "get_search_content",
+          "source_check",
+          "contact_supervisor"
+        ]
+      },
+      "reviewer": {
+        "advertise": true,
+        "extensions": [
+          "~/.pi/agent/npm/node_modules/@gotgenes/pi-permission-system",
+          "~/.pi/agent/npm/node_modules/@ff-labs/pi-fff"
+        ],
+        "inheritGlobalContext": true,
+        "tools": [
+          "read",
+          "grep",
+          "multi_grep",
+          "find",
+          "ls",
+          "codemode",
+          "watchdog_diff",
+          "contact_supervisor"
+        ]
+      },
+      "scout": {
+        "advertise": true,
+        "extensions": [
+          "~/.pi/agent/npm/node_modules/@gotgenes/pi-permission-system",
+          "~/.pi/agent/npm/node_modules/@ff-labs/pi-fff"
+        ],
+        "inheritGlobalContext": true,
+        "tools": [
+          "read",
+          "grep",
+          "multi_grep",
+          "find",
+          "ls",
+          "codemode",
+          "watchdog_diff",
+          "contact_supervisor"
+        ]
+      },
+      "worker": {
+        "advertise": true,
+        "extensions": [
+          "~/.pi/agent/npm/node_modules/@gotgenes/pi-permission-system",
+          "~/.pi/agent/npm/node_modules/@ff-labs/pi-fff"
+        ],
+        "inheritGlobalContext": true,
+        "tools": [
+          "read",
+          "grep",
+          "multi_grep",
+          "find",
+          "ls",
+          "codemode",
+          "bash",
+          "edit",
+          "write",
+          "contact_supervisor"
+        ]
+      }
+    }
+  },
   "theme": "Tokyo Night Day/Tokyo Night"
 }

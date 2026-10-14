@@ -12,17 +12,6 @@
 
 ---
 
-# Codebase Knowledge Graph (codebase-memory-mcp)
-
-ALWAYS prefer search_graph → trace_path → get_code_snippet over grep/glob for code discovery.
-
-Fall back to grep/glob only when:
-- Searching for string literals, error messages, or config values
-- Searching non-code files (Dockerfiles, shell scripts, configs)
-- Graph tools return insufficient or empty results despite the project being indexed
-
----
-
 # GitHub Access
 
 Always use the authenticated `gh` CLI for GitHub data.

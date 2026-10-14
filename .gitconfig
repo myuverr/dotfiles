@@ -32,7 +32,7 @@
   clean = jq --sort-keys '{userSettings: {globalPermissionGrants: .userSettings.globalPermissionGrants}}'
   smudge = $HOME/.config/git/filters/json-deep-merge.sh $HOME/.gemini/config/config.json
 [filter "pi"]
-  clean = jq --sort-keys 'with_entries(select(.key as $k | [\"theme\", \"packages\", \"enableInstallTelemetry\", \"showCacheMissNotices\"] | index($k)))'
+  clean = jq --sort-keys 'with_entries(select(.key as $k | [\"theme\", \"packages\", \"enableInstallTelemetry\", \"showCacheMissNotices\", \"defaultTools\", \"codemode\", \"subagents\"] | index($k)))'
   smudge = $HOME/.config/git/filters/json-deep-merge.sh $HOME/.pi/agent/settings.json
 [filter "makepkg"]
   clean = $HOME/.config/git/filters/makepkg-goamd64.sh clean
